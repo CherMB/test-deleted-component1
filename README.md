@@ -1,0 +1,1 @@
+# test-deleted-component1
