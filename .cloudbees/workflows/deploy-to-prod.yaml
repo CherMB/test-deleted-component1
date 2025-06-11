@@ -26,12 +26,12 @@ jobs:
   deploy:
     steps:
       - id: deploy_ninja_new_app
-        name: deploy to aspm-new-app
+        name: deploy to test-application-ninja
         uses: docker://byrnedo/alpine-curl
         shell: sh
         run: |
           curl -X POST --location 'https://api.saas-preprod.beescloud.com/reserved/v1/events/artifact/deployed' \
-                --data "{\"organisationId\": \"8509888e-d27f-44fa-46a9-29bc76f5e790\", \"applicationId\": \"80cd1853-7fea-434b-adea-500e9561eb43\", \"environmentId\": \"7364df34-6c83-4662-b105-ffc64c5b5d58\", \"repositoryLocation\": \"https://github.com/CherMB/testing-workflows.git\"}" \
+                --data "{\"organisationId\": \"8509888e-d27f-44fa-46a9-29bc76f5e790\", \"applicationId\": \"80cd1853-7fea-434b-adea-500e9561eb43\", \"environmentId\": \"7364df34-6c83-4662-b105-ffc64c5b5d58\", \"repositoryLocation\": \"020229604682.dkr.ecr.us-east-1.amazonaws.com/throwaway/actions/llm-test-actions:latest\"}" \
                 -H 'Content-Type: application/json' \
                 -H "Authorization: Bearer ${{ cloudbees.api.token }}"
 
